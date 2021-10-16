@@ -1,5 +1,5 @@
 {
-    "name": "jupiter-utils",
+    "name": "@jupiterjs/jupiter-utils",
     "version": "0.0.0",
     "description": "工具包",
     "main": "lib/main/index.js",
@@ -13,7 +13,7 @@
         "clean": "rm -rf lib",
         "lint": "eslint --fix ./ --ignore-path .eslintignore --ext .ts",
         "publish:pre": "npm run lint && git checkout master && git merge dev -m 'chore: Merge branch ”dev“' && npm run clean && npm run test && npm run build:prod",
-        "publish:post": "git push --follow-tags && node build-changelog.js && npm publish && git branch -D dev && git checkout -b dev",
+        "publish:post": "git push --follow-tags && node build-changelog.js && npm publish --access=public && git branch -D dev && git checkout -b dev",
         "publish:patch": "npm run publish:pre && npm version patch -m 'chore: Upgrade to %s for reasons' && npm run publish:post",
         "publish:major": "npm run publish:pre && npm version major -m 'chore: Upgrade to %s for reasons' && npm run publish:post",
         "publish:minor": "npm run publish:pre && npm version minor -m 'chore: Upgrade to %s for reasons' && npm run publish:post"
