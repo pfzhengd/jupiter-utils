@@ -156,3 +156,7 @@ export function formatCurrency (value: string | number, unit: string = '￥'):st
 export function isObject (obj:any):boolean {
   return obj !== null && typeof obj === 'object'
 }
+
+export function isFunction (target:any) {
+  return typeof target === 'function'
+}
