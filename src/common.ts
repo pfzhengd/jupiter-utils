@@ -145,7 +145,12 @@ export function formatCurrency (value: string | number, unit: string = '￥'):st
   }
   value = value.toFixed(2)
   const [integer, decimal] = value.toString().split('.')
-  return `${unit} ${integer}`.replace(/\B(?=(\d{3})+(?!\d))/gi, ',') + `.${decimal}`
+  const formatValue = `${integer}`.replace(/\B(?=(\d{3})+(?!\d))/gi, ',') + `.${decimal}`
+  if (unit.length > 0) {
+    return `${unit} ${formatValue}`
+  } else {
+    return formatValue
+  }
 }
 
 /**
