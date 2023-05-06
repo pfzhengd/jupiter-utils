@@ -1,3 +1,12 @@
+## [0.0.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.0.2...v0.0.3) (2023-05-06)
+
+
+### Performance Improvements
+
+* 优化 formatCurrency 函数，如果 unit ([081f580](https://github.com/pfzhengd/jupiter-utils/commit/081f580c1314513dc7de355c548e3c152d181bcb))
+
+
+
 ## [0.0.2](https://github.com/pfzhengd/jupiter-utils/compare/v0.0.2-beta.3...v0.0.2) (2023-04-28)
 
 
