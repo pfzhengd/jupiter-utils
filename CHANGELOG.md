@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/pfzhengd/jupiter-utils/compare/v0.0.3...v0.0.4) (2023-05-12)
+
+
+### Features
+
+* formatCurrency 函数支持对象参数 ([300bc1e](https://github.com/pfzhengd/jupiter-utils/commit/300bc1ea8aa463c20c04d35f7420bc329e4b8198))
+
+
+
 ## [0.0.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.0.2...v0.0.3) (2023-05-06)
 
 
