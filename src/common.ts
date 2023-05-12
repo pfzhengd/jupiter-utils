@@ -10,7 +10,7 @@ export const emptyObject: Readonly<{}> = Object.freeze({})
  * @export
  * @param {any} args
  */
-export function noop (...rest: [any]): void {}
+export function noop (...rest: [any]): void { }
 
 /**
  * 判断对象是否是纯粹的对象类型
@@ -77,7 +77,7 @@ export function once (fn: Function): Function {
  * @param {any} target
  * @returns any
  */
-export function deepClone (target:any):object {
+export function deepClone (target: any): object {
   if ([null, undefined, NaN, false].indexOf(target)) {
     return target
   }
@@ -130,12 +130,30 @@ export function format (...rest: Array<any>): string | Error {
   }
 }
 
+export type FormatCurrencyOptionsType = {
+  unit?: string,
+  decimalPlaces?:number
+} | string
+
 /**
  * @description 将数字进行货币格式化
  * @param value 要进行货币格式化的数字（支持String类型和Number类型）
  * @param unit 格式化货币的单元，默认是中国货币符号￥
  */
-export function formatCurrency (value: string | number, unit: string = '￥'):string {
+export function formatCurrency (value: string | number, options:FormatCurrencyOptionsType = { unit: '￥', decimalPlaces: 2 }) {
+  let unit = '￥'
+  let decimalPlaces = 2
+  if (typeof (options) === 'object') {
+    if (typeof options.unit === 'string') {
+      unit = options.unit
+    }
+    if (typeof options.decimalPlaces === 'number') {
+      decimalPlaces = options.decimalPlaces
+    }
+  } else if (typeof options === 'string') {
+    unit = options
+  }
+
   // 如果值的类型为undefined / null 直接返回空字符串。
   if (value === undefined || value === null) {
     return ''
@@ -143,10 +161,17 @@ export function formatCurrency (value: string | number, unit: string = '￥'):st
   if (typeof value === 'string') {
     value = parseFloat(value)
   }
-  value = value.toFixed(2)
+
+  if (decimalPlaces > 0) {
+    value = value.toFixed(decimalPlaces)
+  }
+
   const [integer, decimal] = value.toString().split('.')
-  const formatValue = `${integer}`.replace(/\B(?=(\d{3})+(?!\d))/gi, ',') + `.${decimal}`
-  if (unit.length > 0) {
+  let formatValue = `${integer}`.replace(/\B(?=(\d{3})+(?!\d))/gi, ',')
+  if (typeof decimal !== 'undefined') {
+    formatValue += `.${decimal}`
+  }
+  if (unit && unit.length > 0) {
     return `${unit} ${formatValue}`
   } else {
     return formatValue
@@ -158,10 +183,14 @@ export function formatCurrency (value: string | number, unit: string = '￥'):st
  * @param obj
  * @returns
  */
-export function isObject (obj:any):boolean {
+export function isObject (obj: any): boolean {
   return obj !== null && typeof obj === 'object'
 }
 
-export function isFunction (target:any) {
+export function isFunction (target: any) {
   return typeof target === 'function'
+}
+
+export const getUUID = (prefix: string = 'UID') => {
+  return `${prefix}-${Date.now()}-${Math.floor(Math.random() * (9e12 - 1)) + 1e12}`
 }
