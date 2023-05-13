@@ -130,17 +130,17 @@ export function format (...rest: Array<any>): string | Error {
   }
 }
 
-export type FormatCurrencyOptionsType = {
+export interface FormatCurrencyOptionsType {
   unit?: string,
   decimalPlaces?:number
-} | string
+}
 
 /**
  * @description 将数字进行货币格式化
  * @param value 要进行货币格式化的数字（支持String类型和Number类型）
  * @param unit 格式化货币的单元，默认是中国货币符号￥
  */
-export function formatCurrency (value: string | number, options:FormatCurrencyOptionsType = { unit: '￥', decimalPlaces: 2 }) {
+export function formatCurrency (value: string | number, options:FormatCurrencyOptionsType | string = { unit: '￥', decimalPlaces: 2 }) {
   let unit = '￥'
   let decimalPlaces = 2
   if (typeof (options) === 'object') {
