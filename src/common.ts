@@ -194,3 +194,5 @@ export function isFunction (target: any) {
 export const getUUID = (prefix: string = 'UID') => {
   return `${prefix}-${Date.now()}-${Math.floor(Math.random() * (9e12 - 1)) + 1e12}`
 }
+
+export const ø = Object.create(null)
