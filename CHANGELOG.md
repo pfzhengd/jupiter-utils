@@ -1,3 +1,12 @@
+# [0.1.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.0.5...v0.1.0) (2023-05-25)
+
+
+### Features
+
+* 增加图片批量预加载的能力 ([fd77357](https://github.com/pfzhengd/jupiter-utils/commit/fd77357272df93b82712d667e0181066410e5b6e))
+
+
+
 ## [0.0.5](https://github.com/pfzhengd/jupiter-utils/compare/v0.0.4...v0.0.5) (2023-05-23)
 
 
