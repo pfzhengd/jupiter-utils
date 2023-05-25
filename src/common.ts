@@ -196,3 +196,5 @@ export const getUUID = (prefix: string = 'UID') => {
 }
 
 export const ø = Object.create(null)
+
+export default {}

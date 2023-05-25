@@ -61,3 +61,5 @@ export const Broadcaster = (): IBroadcaster => {
     }
   }
 }
+
+export default {}

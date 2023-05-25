@@ -66,3 +66,5 @@ export function loader (paths: string | Array<string>, callback: Function):void 
     }
   }
 }
+
+export default {}

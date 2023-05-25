@@ -199,3 +199,5 @@ export function getDiffDays (start:string | Date, end:string | Date):number {
   const days = diffTimes / (24 * 60 * 60 * 1000)
   return days
 }
+
+export default {}

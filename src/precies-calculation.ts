@@ -86,3 +86,5 @@ export function preciseMultiply (num1: number = 0, num2: number = 0): number {
 export function preciseDivide (num1: number = 0, num2: number = 0): number {
   return preciseCalculation(num1, num2, 'Divide')
 }
+
+export default {}
