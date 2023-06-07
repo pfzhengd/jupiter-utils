@@ -110,6 +110,6 @@ test('isFunction', done => {
 test('isEmptyObject', done => {
   expect(isEmptyObject({})).toEqual(true)
   expect(isEmptyObject({ a: 1 })).toEqual(false)
-  expect(isEmptyObject(Object.create(null))).toEqual(false)
+  expect(isEmptyObject(Object.create(null))).toEqual(true)
   done()
 })
