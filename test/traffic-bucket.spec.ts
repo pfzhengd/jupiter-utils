@@ -1,17 +1,17 @@
 import TrafficBucket from '../src/traffic-bucket'
 
 // 模拟访问流量
-function simulateTraffic (trafficBucket:TrafficBucket) {
-  // 随机选择一个分桶
-  const selectedBucket = trafficBucket.getBucket()
+// function simulateTraffic (trafficBucket:TrafficBucket) {
+//   // 随机选择一个分桶
+//   const selectedBucket = trafficBucket.getBucket()
 
-  // 增加分桶的访问计数
-  trafficBucket.increment(selectedBucket)
+//   // 增加分桶的访问计数
+//   trafficBucket.increment(selectedBucket)
 
-  // // 打印结果
-  // console.log(`访问流量落入分桶 ${selectedBucket}`)
-  // console.log('当前访问计数:', TrafficBucket)
-}
+//   // // 打印结果
+//   // console.log(`访问流量落入分桶 ${selectedBucket}`)
+//   // console.log('当前访问计数:', TrafficBucket)
+// }
 
 test('TrafficBucket 0', (done) => {
   const trafficBucket = new TrafficBucket({
