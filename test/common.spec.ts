@@ -7,7 +7,8 @@ import {
   isString,
   format,
   formatCurrency,
-  isFunction
+  isFunction,
+  isEmptyObject
 } from '../src/common'
 
 test('isPlainObject ?', () => {
@@ -103,5 +104,12 @@ test('isFunction', done => {
   expect(isFunction(undefined)).toEqual(false)
   expect(isFunction(null)).toEqual(false)
   expect(isFunction('')).toEqual(false)
+  done()
+})
+
+test('isEmptyObject', done => {
+  expect(isEmptyObject({})).toEqual(true)
+  expect(isEmptyObject({ a: 1 })).toEqual(false)
+  expect(isEmptyObject(Object.create(null))).toEqual(false)
   done()
 })

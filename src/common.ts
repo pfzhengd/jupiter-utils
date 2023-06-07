@@ -197,4 +197,8 @@ export const getUUID = (prefix: string = 'UID') => {
 
 export const ø = Object.create(null)
 
+export const isEmptyObject = (obj: object) => {
+  return Object.keys(obj).length === 0
+}
+
 export default {}
