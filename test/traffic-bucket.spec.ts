@@ -1,4 +1,4 @@
-import TrafficBucket from '../src/traffic-bucket'
+import { TrafficBucket } from '../src/traffic-bucket'
 
 // 模拟访问流量
 // function simulateTraffic (trafficBucket:TrafficBucket) {

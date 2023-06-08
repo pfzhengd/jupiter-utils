@@ -7,7 +7,7 @@ export interface BucketOption {
   callback?: Function
 }
 
-export default class TrafficBucket {
+export class TrafficBucket {
   options:Record<string, BucketOption>
   constructor (options:Record<string, BucketOption>) {
     this.options = options
