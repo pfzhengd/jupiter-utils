@@ -44,4 +44,8 @@ export class LocalDataBase {
     this.data = data
     this.saveup()
   }
+
+  getter (key:string) {
+    return this.data[key]
+  }
 }
