@@ -1,4 +1,18 @@
+## [0.2.4](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.3...v0.2.4) (2023-06-08)
+
+
+### Features
+
+* 给 LocalDataBase 增加 一个 get 函数 ([a2cd681](https://github.com/pfzhengd/jupiter-utils/commit/a2cd681945a876b6788fbbde6e36e482167f1f4a))
+
+
+
 ## [0.2.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.1...v0.2.3) (2023-06-08)
+
+
+
+## [0.2.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.0...v0.2.1) (2023-06-08)
+
 
 ### Bug Fixes
 
