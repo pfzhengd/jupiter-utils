@@ -1,9 +1,18 @@
+## [0.2.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.0...v0.2.1) (2023-06-08)
+
+
+### Bug Fixes
+
+* TrafficBucket 没有导出 ([e990ab2](https://github.com/pfzhengd/jupiter-utils/commit/e990ab2354b688ad934e442b94bbc341f6fa97a4))
+
+
+
 # [0.2.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.1.1...v0.2.0) (2023-06-07)
 
 
 ### Features
 
-* 添加 LocalDatabase 类 ([1fd53e2](https://github.com/pfzhengd/jupiter-utils/commit/1fd53e29286b95d5b8586f4e0d4a23656f999721))
+* 1、添加 LocalDatabase 类 ([1fd53e2](https://github.com/pfzhengd/jupiter-utils/commit/1fd53e29286b95d5b8586f4e0d4a23656f999721))
 * 添加 isEmptyObject 函数 ([d50a9c4](https://github.com/pfzhengd/jupiter-utils/commit/d50a9c40ba554c2360669d4c75d5f585da056c80))
 
 
