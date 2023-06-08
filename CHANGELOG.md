@@ -3,7 +3,7 @@
 
 ### Features
 
-* 1、添加 LocalDatabase 类 ([1fd53e2](https://github.com/pfzhengd/jupiter-utils/commit/1fd53e29286b95d5b8586f4e0d4a23656f999721))
+* 添加 LocalDatabase 类 ([1fd53e2](https://github.com/pfzhengd/jupiter-utils/commit/1fd53e29286b95d5b8586f4e0d4a23656f999721))
 * 添加 isEmptyObject 函数 ([d50a9c4](https://github.com/pfzhengd/jupiter-utils/commit/d50a9c40ba554c2360669d4c75d5f585da056c80))
 
 
