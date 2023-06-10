@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.4...v0.3.0) (2023-06-10)
+
+
+### Features
+
+* 添加 debonuce 函数 ([5e6780a](https://github.com/pfzhengd/jupiter-utils/commit/5e6780abb99bf0bed82799f80d63a870fcbe8784))
+
+
+
 ## [0.2.4](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.3...v0.2.4) (2023-06-08)
 
 
