@@ -201,4 +201,32 @@ export const isEmptyObject = (obj: object) => {
   return Object.keys(obj).length === 0
 }
 
+export function debounce (
+  event = noop,
+  wait = 50,
+  immediately = false
+) {
+  let timeout = null
+  let called = false
+
+  return function (...rest) {
+    if (timeout) {
+      clearTimeout(timeout)
+      timeout = null
+    }
+
+    const execute = () => {
+      event.call(this, ...rest)
+      timeout = null
+    }
+
+    if (immediately && !called) {
+      execute()
+      called = true
+    } else {
+      timeout = setTimeout(execute, wait)
+    }
+  }
+}
+
 export default {}

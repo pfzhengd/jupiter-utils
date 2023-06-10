@@ -8,7 +8,8 @@ import {
   format,
   formatCurrency,
   isFunction,
-  isEmptyObject
+  isEmptyObject,
+  debounce
 } from '../src/common'
 
 test('isPlainObject ?', () => {
@@ -112,4 +113,18 @@ test('isEmptyObject', done => {
   expect(isEmptyObject({ a: 1 })).toEqual(false)
   expect(isEmptyObject(Object.create(null))).toEqual(true)
   done()
+})
+
+test('debonuce', done => {
+  // 测试 debonuce 函数是否正常执行
+  let counter = 0
+  const fn = debounce(() => {
+    counter++
+  }, 1000)
+  fn(); fn(); fn()
+  setTimeout(() => {
+    expect(counter).toBe(1)
+    done()
+  }
+  , 1000)
 })
