@@ -1,3 +1,12 @@
+# [0.4.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.3.0...v0.4.0) (2023-06-27)
+
+
+### Features
+
+* 添加 def 、setPropertyReadonly ([df57bdf](https://github.com/pfzhengd/jupiter-utils/commit/df57bdf4e3be3d97e33b3fcb43541dd1fbb88880))
+
+
+
 # [0.3.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.2.4...v0.3.0) (2023-06-10)
 
 
