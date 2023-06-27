@@ -9,7 +9,9 @@ import {
   formatCurrency,
   isFunction,
   isEmptyObject,
-  debounce
+  debounce,
+  setPropertyReadonly,
+  def
 } from '../src/common'
 
 test('isPlainObject ?', () => {
@@ -127,4 +129,46 @@ test('debonuce', done => {
     done()
   }
   , 1000)
+})
+
+// 测试 setPropertyReadonly 在赋值时是否会异常
+test('setPropertyReadonly', done => {
+  const obj:Record<string, any> = {
+    a: 1,
+    b: 2
+  }
+  obj.c = '3'
+  setPropertyReadonly(obj, 'a')
+  setPropertyReadonly(obj, 'b')
+  expect(obj.a).toEqual(1)
+  expect(obj.b).toEqual(2)
+  expect(obj.c).toEqual('3')
+
+  expect(() => { obj.a = 3 }).toThrow('Cannot set read-only property "a"')
+  expect(() => { setPropertyReadonly(obj, 'address') }).toThrow("Property 'address' does not exist on the object")
+  done()
+})
+
+describe('def', () => {
+  test('defines a new property on the object', () => {
+    const obj = {}
+    const key = 'name'
+    const val = 'John'
+
+    def(obj, key, val)
+
+    expect(obj[key]).toBe(val)
+  })
+
+  test('defines a new non-enumerable property on the object', () => {
+    const obj = {}
+    const key = 'age'
+    const val = 30
+
+    def(obj, key, val, false)
+
+    expect(hasOwn(obj, key)).toBe(true) // Property is defined on the object
+    expect(Object.propertyIsEnumerable.call(obj, key)).toBe(false) // Property is not enumerable
+    expect(obj[key]).toBe(val)
+  })
 })

@@ -229,4 +229,31 @@ export function debounce (
   }
 }
 
+export function def (obj: Object, key: string, val: any, enumerable?: boolean):void {
+  Object.defineProperty(obj, key, {
+    value: val,
+    enumerable: !!enumerable,
+    writable: true,
+    configurable: true
+  })
+}
+
+export function setPropertyReadonly (obj:Record<string, any>, propertyName:string) {
+  if (!hasOwn(obj, propertyName)) {
+    throw new Error(`Property '${propertyName}' does not exist on the object`)
+  }
+  const value = obj[propertyName] // 保存原始值
+
+  Object.defineProperty(obj, propertyName, {
+    get: function () {
+      return value // 返回原始值
+    },
+    set: function (newValue:any) {
+      throw new Error(`Cannot set read-only property "${propertyName}"`)
+    },
+    enumerable: true,
+    configurable: false
+  })
+}
+
 export default {}
