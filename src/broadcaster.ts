@@ -1,6 +1,6 @@
 import { hasOwn } from './common'
 
-interface IBroadcaster {
+export interface IBroadcaster {
   subscribe: (channel: string, commit: Function) => void
   publish: (channel: string, data: Object | Array<any>) => void
   unsubscribe: (channel: string, commit?: Function) => boolean

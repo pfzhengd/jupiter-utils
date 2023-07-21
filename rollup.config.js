@@ -9,8 +9,12 @@ export default () => {
       input: `./src/${fileName}.ts`,
       output: [
         {
-          format: 'es',
+          format: 'cjs',
           file: `lib/main/${fileName}.js`
+        },
+        {
+          format: 'es',
+          file: `lib/es/${fileName}.js`
         }
       ],
       plugins: [
@@ -31,19 +35,19 @@ export default () => {
     config.push(template(mouldeName))
   })
 
-  if(process.env.NODE_ENV === 'production'){
-    config.forEach(val=>{
+  if (process.env.NODE_ENV === 'production') {
+    config.forEach(val => {
       val.plugins.push(
         terser({
-          mangle:false
+          mangle: false
         }))
     })
   }
 
   config.push({
-    input: "./src/index.ts",
-    output: [{ file: "lib/types/index.d.ts", format: "es" }],
-    plugins: [dts()],
+    input: './src/index.ts',
+    output: [{ file: 'lib/types/index.d.ts', format: 'es' }],
+    plugins: [dts()]
   })
 
   return config
