@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.0...v0.4.1) (2023-07-21)
+
+
+### Features
+
+* 1、Broadcaster 增加类型输出；2、支持 es 、cjs 两种文件构建的输出。 ([f1059d1](https://github.com/pfzhengd/jupiter-utils/commit/f1059d1c037488184fe9ccaf39cfb7c5f7848384))
+
+
+
 # [0.4.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.3.0...v0.4.0) (2023-06-27)
 
 
