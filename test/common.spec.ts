@@ -52,7 +52,7 @@ test('deepClone ?', () => {
   expect(hasOwn(result.c, 'c2')).toBe(true)
 })
 
-test('once ?', () => {
+test('once sync', () => {
   let counter = 0
   const fn = once((a:number, b:number) => {
     console.log('我只执行了一次。')
@@ -61,6 +61,31 @@ test('once ?', () => {
   fn(1, 2)
   fn(1, 2)
   expect(counter).toBe(3)
+})
+
+test('once async', async () => {
+  function counter (a:number, b:number):Promise<number> {
+    return new Promise((resolve, reject) => {
+      try {
+        setTimeout(() => {
+          const result = a + b
+          resolve(result)
+        }, 1000 * 1)
+      } catch (err:any) {
+        reject(err)
+      }
+    })
+  }
+  const fn = once(counter)
+  let data:number = 0
+  for (let i = 0; i < 10; i++) {
+    const result = await fn(i, 1) as number
+    if (data === 0) {
+      data = result
+    }
+    console.log(result)
+  }
+  expect(data).toEqual(1)
 })
 
 test('isString ?', done => {

@@ -60,14 +60,14 @@ export function extend (to: object, _from: object): object {
  * @param {Function} fn
  * @returns Function
  */
-export function once (fn: Function): Function {
+export function once<T extends Function> (fn: T): T {
   let called = false
-  return function (...rest: [any]): void {
+  return function (...rest: [any]): Promise<any>|any {
     if (!called) {
       called = true
-      fn.apply(this, rest)
+      return fn.apply(this, rest)
     }
-  }
+  } as unknown as T
 }
 
 /**
