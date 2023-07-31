@@ -1,3 +1,12 @@
+## [0.4.2](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.1...v0.4.2) (2023-07-31)
+
+
+### Features
+
+* once 支持异步函数 ([5e3bb22](https://github.com/pfzhengd/jupiter-utils/commit/5e3bb226df8ceb5fa99c202e1783044a6a9fa1e5))
+
+
+
 ## [0.4.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.0...v0.4.1) (2023-07-21)
 
 
