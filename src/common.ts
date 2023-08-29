@@ -256,4 +256,29 @@ export function setPropertyReadonly (obj:Record<string, any>, propertyName:strin
   })
 }
 
+/**
+ * 一个将 8.5K,8.5M,8.5B,8.5T,8.5Q 转换成数字的函数
+ */
+export function parseNumber (value: string): number {
+  const number = parseFloat(value)
+  if (isNaN(number)) {
+    return 0
+  }
+  const unit = value.replace(number.toString(), '').toUpperCase()
+  switch (unit) {
+    case 'K':
+      return number * 1000
+    case 'M':
+      return number * 1000000
+    case 'B':
+      return number * 1000000000
+    case 'T':
+      return number * 1000000000000
+    case 'Q':
+      return number * 1000000000000000
+    default:
+      return number
+  }
+}
+
 export default {}

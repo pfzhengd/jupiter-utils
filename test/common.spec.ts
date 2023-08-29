@@ -11,6 +11,7 @@ import {
   isEmptyObject,
   debounce,
   setPropertyReadonly,
+  parseNumber,
   def
 } from '../src/common'
 
@@ -195,5 +196,15 @@ describe('def', () => {
     expect(hasOwn(obj, key)).toBe(true) // Property is defined on the object
     expect(Object.propertyIsEnumerable.call(obj, key)).toBe(false) // Property is not enumerable
     expect(obj[key]).toBe(val)
+  })
+})
+
+describe('parseNumber', () => {
+  test('parses a number', () => {
+    expect(parseNumber('8.5K')).toBe(8500)
+    expect(parseNumber('8.5M')).toBe(8500000)
+    expect(parseNumber('8.5B')).toBe(8500000000)
+    expect(parseNumber('8.5T')).toBe(8500000000000)
+    expect(parseNumber('8.5Q')).toBe(8500000000000000)
   })
 })
