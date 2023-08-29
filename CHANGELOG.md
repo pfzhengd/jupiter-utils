@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.2...v0.4.3) (2023-08-29)
+
+
+### Features
+
+* 增加一个将 8.5K,8.5M,8.5B,8.5T,8.5Q 转换成数字的函数 ([2e760f0](https://github.com/pfzhengd/jupiter-utils/commit/2e760f06d392fda1cccb3e855c77c5e339b3209e))
+
+
+
 ## [0.4.2](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.1...v0.4.2) (2023-07-31)
 
 
