@@ -1,3 +1,12 @@
+## [0.4.4](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.3...v0.4.4) (2023-09-14)
+
+
+### Features
+
+* 在给定长度的数组中，通过平均分配指定的数字，使每个元素的值尽可能接近平均值 ([91dfa48](https://github.com/pfzhengd/jupiter-utils/commit/91dfa48162f7efe49209e9d2f1ccd6cd39396d83))
+
+
+
 ## [0.4.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.2...v0.4.3) (2023-08-29)
 
 
