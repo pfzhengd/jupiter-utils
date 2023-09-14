@@ -257,7 +257,7 @@ export function setPropertyReadonly (obj:Record<string, any>, propertyName:strin
 }
 
 /**
- * 一个将 8.5K,8.5M,8.5B,8.5T,8.5Q 转换成数字的函数
+ * 一个将类似 8.5K,8.5M,8.5B,8.5T,8.5Q 格式的数据转换成数字的函数
  */
 export function parseNumber (value: string): number {
   const number = parseFloat(value)
@@ -279,6 +279,20 @@ export function parseNumber (value: string): number {
     default:
       return number
   }
+}
+
+/**
+ * 在给定长度的数组中，通过平均分配指定的数字，使每个元素的值尽可能接近平均值。
+ */
+export function distributeEvenly (total:number, num:number) {
+  const quotient = Math.floor(total / num)
+  const remainder = total % num
+  const result = Array(num).fill(quotient)
+
+  for (let i = 0; i < remainder; i++) {
+    result[i] += 1
+  }
+  return result
 }
 
 export default {}

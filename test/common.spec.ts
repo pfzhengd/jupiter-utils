@@ -12,7 +12,8 @@ import {
   debounce,
   setPropertyReadonly,
   parseNumber,
-  def
+  def,
+  distributeEvenly
 } from '../src/common'
 
 test('isPlainObject ?', () => {
@@ -206,5 +207,12 @@ describe('parseNumber', () => {
     expect(parseNumber('8.5B')).toBe(8500000000)
     expect(parseNumber('8.5T')).toBe(8500000000000)
     expect(parseNumber('8.5Q')).toBe(8500000000000000)
+  })
+})
+
+describe('distributeEvenly', () => {
+  test('No.1', () => {
+    expect(distributeEvenly(23, 9)).toEqual([3, 3, 3, 3, 3, 2, 2, 2, 2])
+    expect(distributeEvenly(332, 9)).toEqual([37, 37, 37, 37, 37, 37, 37, 37, 36])
   })
 })
