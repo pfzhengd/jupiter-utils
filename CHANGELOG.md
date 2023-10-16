@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.4...v0.5.0) (2023-10-16)
+
+
+### Features
+
+* IBroadcaster 支持 getSubscribers ([385d012](https://github.com/pfzhengd/jupiter-utils/commit/385d012f984f11e4d9c61e85975f5df82060c448))
+
+
+
 ## [0.4.4](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.3...v0.4.4) (2023-09-14)
 
 
