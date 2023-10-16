@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.5.0...v0.5.1) (2023-10-16)
+
+
+### Bug Fixes
+
+* getSubscribers 函数后，内部也无法正常工作。 ([b08612b](https://github.com/pfzhengd/jupiter-utils/commit/b08612bd561683dbb988ddcea4a07857781cd071))
+
+
+
 # [0.5.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.4.4...v0.5.0) (2023-10-16)
 
 
