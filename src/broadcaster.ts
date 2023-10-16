@@ -64,7 +64,7 @@ export const Broadcaster = (): IBroadcaster => {
      * 获取订阅个数
      */
     getSubscribers () {
-      return Object.freeze(store)
+      return Object.freeze({ ...store })
     }
   }
 }
