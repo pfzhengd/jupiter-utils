@@ -1,16 +1,16 @@
 import { hasOwn } from './common'
 
-export interface IBroadcaster {
-  subscribe: (channel: string, commit: Function) => void
-  publish: (channel: string, data: Object | Array<any>) => void
-  unsubscribe: (channel: string, commit?: Function) => boolean
-}
-
 type TStore =
   | {
       channel: Array<Function>
     }
   | object
+export interface IBroadcaster {
+  subscribe: (channel: string, commit: Function) => void
+  publish: (channel: string, data: Object | Array<any>) => void
+  unsubscribe: (channel: string, commit?: Function) => boolean
+  getSubscribers:()=>TStore
+}
 
 export const Broadcaster = (): IBroadcaster => {
   const store: TStore = {}
@@ -58,6 +58,13 @@ export const Broadcaster = (): IBroadcaster => {
         console.warn(`The '${channel}' is not found by the 'store'.`)
       }
       return true
+    },
+
+    /**
+     * 获取订阅个数
+     */
+    getSubscribers () {
+      return Object.freeze(store)
     }
   }
 }
