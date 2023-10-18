@@ -1,44 +1,28 @@
-export interface IState{
-  [key:string]:any
-}
-export type Listener = (state: IState) => Promise<void>;
-export interface IStateManager{
-  state:IState
-  listeners:Listener[]
+export type Observer<T> = (state: T) => Promise<void>;
+export interface IStateManager<T>{
+  state:T
+  observer:Observer<T>
 
-  setState(newState:IState):Promise<void>
+  setState(newState:T):Promise<void>
 
-  getState():IState
-
-  subscribe(listener:Listener):()=>Promise<void>
+  getState():T
 }
 
-export default class StateManager implements IStateManager {
-  state: IState;
-  listeners: ((state: IState) => Promise<void>)[];
+export default class StateManager<T> implements IStateManager<T> {
+  state: T;
+  observer: Observer<T>
 
-  constructor () {
-    this.state = {}
-    this.listeners = []
+  constructor (state: T, observer: Observer<T>) {
+    this.state = state
+    this.observer = observer
   }
 
-  public async setState (newState: IState): Promise<void> {
-    this.state = { ...this.state, ...newState }
-    this.notifyListeners()
+  async setState (newState: T): Promise<void> {
+    this.state = newState
+    await this.observer(newState)
   }
 
-  public getState (): IState {
+  getState () {
     return this.state
-  }
-
-  public subscribe (listener: (state: IState) => Promise<void>): () => Promise<void> {
-    this.listeners.push(listener)
-    return async () => {
-      this.listeners = this.listeners.filter(l => l !== listener)
-    }
-  }
-
-  private notifyListeners () {
-    this.listeners.forEach(listener => listener(this.state))
   }
 }
