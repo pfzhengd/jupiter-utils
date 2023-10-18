@@ -1,4 +1,4 @@
-import StateManager, { IStateManager } from '../src/state-manager'
+import { StateManager, IStateManager } from '../src/state-manager'
 
 const mockObserver = jest.fn()
 
