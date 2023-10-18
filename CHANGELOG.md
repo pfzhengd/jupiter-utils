@@ -1,3 +1,12 @@
+## [0.6.2](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.1...v0.6.2) (2023-10-18)
+
+
+### Performance Improvements
+
+* 将 stateManager 改成具名导出 ([7f3a005](https://github.com/pfzhengd/jupiter-utils/commit/7f3a005aadc9765761b622a5e544f4546e6c2b35))
+
+
+
 ## [0.6.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.0...v0.6.1) (2023-10-18)
 
 
