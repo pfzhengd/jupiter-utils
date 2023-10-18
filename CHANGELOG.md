@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.0...v0.6.1) (2023-10-18)
+
+
+### Performance Improvements
+
+* 将状态管理的引用入口放在 index 文件中 ([eed8c66](https://github.com/pfzhengd/jupiter-utils/commit/eed8c662303dd9a1392f39c3af53d43ba3c978a3))
+
+
+
 # [0.6.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.5.1...v0.6.0) (2023-10-18)
 
 
