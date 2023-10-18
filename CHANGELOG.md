@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.5.1...v0.6.0) (2023-10-18)
+
+
+### Features
+
+* 增加状态管理模块 ([8bf8ac7](https://github.com/pfzhengd/jupiter-utils/commit/8bf8ac7d19fa3765c812dfedf2802a33114df52f))
+
+
+
 ## [0.5.1](https://github.com/pfzhengd/jupiter-utils/compare/v0.5.0...v0.5.1) (2023-10-16)
 
 
