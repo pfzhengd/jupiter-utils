@@ -8,7 +8,7 @@ export interface IStateManager<T>{
   getState():T
 }
 
-export default class StateManager<T> implements IStateManager<T> {
+export class StateManager<T> implements IStateManager<T> {
   state: T;
   observer: Observer<T>
 
