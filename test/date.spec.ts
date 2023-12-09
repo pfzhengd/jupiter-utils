@@ -5,7 +5,8 @@ import {
   TDate,
   getDiffTime,
   getDiffTimeDescription,
-  getDiffDays
+  getDiffDays,
+  formatTimestamp
 } from '../src/date'
 
 test('fullTime ?', () => {
@@ -82,4 +83,25 @@ test('getDiffTimeDescription ?', done => {
   console.log(getDiffTimeDescription('2016-09-27T15:59:17.000Z', new Date(), 0, 2))
   expect(getDiffTimeDescription('', '', 7286)).toBe('0年0个月0日0小时0分7秒')
   done()
+}) // 引入 formatTimestamp 函数
+
+describe('formatTimestamp', () => {
+  it('formats a timestamp for the current day as "hh:mm AM/PM"', () => {
+    const now = new Date()
+    const timestamp = now.getTime()
+    const expectedHour = now.getHours() % 12 || 12
+    const expectedMinutes = now.getMinutes() < 10 ? `0${now.getMinutes()}` : now.getMinutes()
+    const expectedAmPm = now.getHours() >= 12 ? 'PM' : 'AM'
+    const expectedFormat = `${expectedHour}:${expectedMinutes} ${expectedAmPm}`
+
+    expect(formatTimestamp(timestamp)).toBe(expectedFormat)
+  })
+
+  it('formats a timestamp not on the current day as "yyyy-mm-dd hh:mm"', () => {
+    const pastDate = new Date('2020-1-1 12:0') // 使用一个固定的过去日期
+    const timestamp = pastDate.getTime()
+    const expectedFormat = '2020-1-1 12:0' // 根据 formatTimestamp 函数的逻辑
+
+    expect(formatTimestamp(timestamp)).toBe(expectedFormat)
+  })
 })

@@ -200,4 +200,35 @@ export function getDiffDays (start:string | Date, end:string | Date):number {
   return days
 }
 
+/**
+ * 格式化时间戳
+ * @param timestamp
+ * @returns
+ */
+export function formatTimestamp (timestamp:number) {
+  const date = new Date(timestamp)
+  const now = new Date()
+
+  // 检查是否是当天时间
+  if (date.getDate() === now.getDate() &&
+      date.getMonth() === now.getMonth() &&
+      date.getFullYear() === now.getFullYear()) {
+    // 当天时间，格式化为 "hh:mm AM/PM"
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const ampm = hours >= 12 ? 'PM' : 'AM'
+    const formattedHours = hours % 12 || 12 // 将小时转换为 12 小时制
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes
+    return `${formattedHours}:${formattedMinutes} ${ampm}`
+  } else {
+    // 超出当天时间，格式化为 "年月日时分"
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1 // 月份从 0 开始，需要加 1
+    const day = date.getDate()
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    return `${year}-${month}-${day} ${hours}:${minutes}`
+  }
+}
+
 export default {}
