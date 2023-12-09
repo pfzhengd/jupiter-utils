@@ -1,3 +1,13 @@
+## [0.6.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.2...v0.6.3) (2023-12-09)
+
+
+### Features
+
+* 增加对象浅比较函数 ([abcf1b2](https://github.com/pfzhengd/jupiter-utils/commit/abcf1b290115082115fd5c0b043ed8e04c858e6a))
+* 增加时间戳格式化函数 ([886431c](https://github.com/pfzhengd/jupiter-utils/commit/886431c3158993fb2156ea9055f0386dcbbb89ea))
+
+
+
 ## [0.6.2](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.1...v0.6.2) (2023-10-18)
 
 
