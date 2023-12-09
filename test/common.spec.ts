@@ -13,7 +13,8 @@ import {
   setPropertyReadonly,
   parseNumber,
   def,
-  distributeEvenly
+  distributeEvenly,
+  shallowEqual
 } from '../src/common'
 
 test('isPlainObject ?', () => {
@@ -214,5 +215,31 @@ describe('distributeEvenly', () => {
   test('No.1', () => {
     expect(distributeEvenly(23, 9)).toEqual([3, 3, 3, 3, 3, 2, 2, 2, 2])
     expect(distributeEvenly(332, 9)).toEqual([37, 37, 37, 37, 37, 37, 37, 37, 36])
+  })
+}) // 引入 shallowEqual 函数
+
+describe('shallowEqual', () => {
+  it('returns true for two identical objects', () => {
+    const objA = { a: 1, b: 2 }
+    const objB = { a: 1, b: 2 }
+    expect(shallowEqual(objA, objB)).toBe(true)
+  })
+
+  it('returns false for two different objects', () => {
+    const objA = { a: 1, b: 2 }
+    const objB = { a: 2, b: 3 }
+    expect(shallowEqual(objA, objB)).toBe(false)
+  })
+
+  it('returns false for objects with different property counts', () => {
+    const objA = { a: 1, b: 2 }
+    const objB = { a: 1 }
+    expect(shallowEqual(objA, objB)).toBe(false)
+  })
+
+  it('returns true for two references to the same object', () => {
+    const objA = { a: 1, b: 2 }
+    const objB = objA
+    expect(shallowEqual(objA, objB)).toBe(true)
   })
 })

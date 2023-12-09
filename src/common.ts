@@ -1,3 +1,5 @@
+import { TBaseType } from '../types'
+
 export const hasOwnProperty = Object.prototype.hasOwnProperty
 export const _toString = Object.prototype.toString
 export const slice = Array.prototype.slice
@@ -293,6 +295,27 @@ export function distributeEvenly (total:number, num:number) {
     result[i] += 1
   }
   return result
+}
+
+/**
+ * 判断两个对象是否相等
+ * @param objA
+ * @param objB
+ * @returns
+ */
+export function shallowEqual (objA: Record<string, TBaseType>, objB: Record<string, TBaseType>) {
+  if (objA === objB) {
+    return true
+  }
+  if (objA.length !== objB.length) {
+    return false
+  }
+  for (const key in objA) {
+    if (objA[key] !== objB[key]) {
+      return false
+    }
+  }
+  return true
 }
 
 export default {}
