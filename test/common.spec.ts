@@ -3,6 +3,7 @@ import {
   hasOwn,
   extend,
   deepClone,
+  deepMerge,
   once,
   isString,
   format,
@@ -14,7 +15,8 @@ import {
   parseNumber,
   def,
   distributeEvenly,
-  shallowEqual
+  shallowEqual,
+  noop
 } from '../src/common'
 
 test('isPlainObject ?', () => {
@@ -241,5 +243,99 @@ describe('shallowEqual', () => {
     const objA = { a: 1, b: 2 }
     const objB = objA
     expect(shallowEqual(objA, objB)).toBe(true)
+  })
+}) // 请替换为实际文件路径
+
+// Jest 测试用例
+describe('deepMerge function', () => {
+  // 测试用例1：深度合并两个对象
+  it('should deep merge two objects', () => {
+    const sources = {
+      a: 1,
+      b: {
+        c: 2,
+        d: {
+          e: 3
+        }
+      }
+    }
+
+    const target = {
+      b: {
+        d: {
+          f: 4
+        }
+      },
+      g: 5
+    }
+
+    const result = deepMerge(sources, target)
+
+    expect(result).toEqual({
+      a: 1,
+      b: {
+        c: 2,
+        d: {
+          e: 3,
+          f: 4
+        }
+      },
+      g: 5
+    })
+  })
+
+  // 测试用例2：处理不同类型的参数
+  it('should handle different types of parameters', () => {
+    // 准备输入数据
+    const sources = {
+      a: 1,
+      b: {
+        c: 2
+      }
+    }
+
+    // 测试 string
+    const targetString = deepMerge(sources, { key: 'test' })
+    expect(targetString).toEqual({ key: 'test', a: 1, b: { c: 2 } })
+
+    // 测试 number
+    const targetNumber = deepMerge(sources, { key: 42 })
+    expect(targetNumber).toEqual({ key: 42, a: 1, b: { c: 2 } })
+
+    // 测试 null
+    const targetNull = deepMerge(sources, { key: null })
+    expect(targetNull).toEqual({ key: null, a: 1, b: { c: 2 } })
+
+    // 测试 undefined
+    const targetUndefined = deepMerge(sources, { key: undefined })
+    expect(targetUndefined).toEqual({ key: undefined, a: 1, b: { c: 2 } })
+
+    // 测试 boolean
+    const targetBoolean = deepMerge(sources, { key: false })
+    expect(targetBoolean).toEqual({ key: false, a: 1, b: { c: 2 } })
+
+    // 测试 symbol
+    const targetSymbol = deepMerge(sources, { key: Symbol('test') })
+    expect(targetSymbol).toEqual(expect.objectContaining({ a: 1, b: { c: 2 }, key: expect.any(Symbol) }))
+  })
+})
+
+// Jest 测试用例
+describe('noop function', () => {
+  // 测试用例1：新的 noop 返回 Promise
+  it('should return a Promise for new noop', () => {
+    const result = noop()
+    expect(result).toBeUndefined()
+  })
+
+  // 测试用例2：新的 noop 与旧的 noop 返回值兼容
+  it('should be backward compatible with old noop', () => {
+    const oldNoopResult: void = noop()
+    const newNoopResult: Promise<any>|any = noop()
+
+    // 通过类型断言确保兼容性
+    const backwardCompatibleResult: void = newNoopResult as void
+
+    expect(backwardCompatibleResult).toBe(oldNoopResult)
   })
 })

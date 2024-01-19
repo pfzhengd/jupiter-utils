@@ -12,7 +12,7 @@ export const emptyObject: Readonly<{}> = Object.freeze({})
  * @export
  * @param {any} args
  */
-export function noop (...rest: [any]): void { }
+export function noop (...rest: any[]): Promise<any>|any { }
 
 /**
  * 判断对象是否是纯粹的对象类型
@@ -94,6 +94,27 @@ export function deepClone (target: any): object {
     }
   }
   return obj
+}
+
+/**
+ *
+ * @param sources Object,string,number,null,undefined,boolean,symbol
+ * @param target
+ */
+export const deepMerge = function (sources:Record<string, any>, target:Record<string, any>):Record<string, any> {
+  if (typeof sources === 'object' && typeof target === 'object') {
+    const names = Object.getOwnPropertyNames(sources)
+    names.forEach(name => {
+      if (_toString.call((sources[name])) === '[object Object]') {
+        target[name] = deepMerge(sources[name], target[name])
+      } else {
+        target[name] = sources[name]
+      }
+    })
+  } else {
+    target = sources
+  }
+  return target
 }
 
 /**
