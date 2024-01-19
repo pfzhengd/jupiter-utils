@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.3...v0.7.0) (2024-01-19)
+
+
+### Features
+
+* 增加 deepMerge 函数及优化 noop 的TS声明类型 ([392e1e7](https://github.com/pfzhengd/jupiter-utils/commit/392e1e78af3d883a35228e714db4b69a22fdfdd3))
+
+
+
 ## [0.6.3](https://github.com/pfzhengd/jupiter-utils/compare/v0.6.2...v0.6.3) (2023-12-09)
 
 
