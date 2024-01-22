@@ -1,13 +1,10 @@
+import { TNoop } from '../types'
 import { hasOwn } from './common'
 
-type TStore =
-  | {
-      channel: Array<Function>
-    }
-  | object
+type TStore = Record<string, any>
 export interface IBroadcaster {
   subscribe: (channel: string, commit: Function) => void
-  publish: (channel: string, data: Object | Array<any>) => void
+  publish: (channel: string, data: any) => void
   unsubscribe: (channel: string, commit?: Function) => boolean
   getSubscribers:()=>TStore
 }
@@ -17,7 +14,7 @@ export const Broadcaster = (): IBroadcaster => {
 
   return {
     /** 订阅广播 */
-    subscribe: (channel: string, commit: Function): void => {
+    subscribe: (channel: string, commit: TNoop): void => {
       if (hasOwn(store, channel)) {
         store[channel].add(commit)
       } else {
@@ -26,7 +23,7 @@ export const Broadcaster = (): IBroadcaster => {
     },
 
     /** 广播消息 */
-    publish: (channel: string, data: Object | Array<any>): void => {
+    publish: (channel: string, data: any): void => {
       if (hasOwn(store, channel)) {
         if (!Array.isArray(data)) {
           data = [data]
@@ -41,7 +38,7 @@ export const Broadcaster = (): IBroadcaster => {
     },
 
     /** 取消订阅广播 */
-    unsubscribe: (channel: string, commit?: Function): boolean => {
+    unsubscribe: (channel: string, commit?: TNoop): boolean => {
       if (hasOwn(store, channel)) {
         if (commit) {
           const commits:Array<Function> = store[channel]
